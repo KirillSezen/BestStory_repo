@@ -1,0 +1,184 @@
+/* Base */
+body {
+    background: #d0d0d0;
+    color: #333;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Intro */
+.index_intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    background: url("/assets/images/обои-красивые-картинки-Майк-Митчелл-Mike-Mitchell-714070.jpeg") center no-repeat;
+    background-size: cover;
+}
+
+.main_intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    background: url("/assets/images/1644894977_1-fikiwiki-com-p-kartinka-boitsovskii-klub-1.jpg") center no-repeat;
+    background-size: cover;
+}
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    background: url("/assets/images/1614277856_49-p-chernii-fon-dlya-vizitki-57.jpg") center no-repeat;
+    background-size: cover;
+}
+
+.intro_inner {
+    padding-left: 10px;
+    width: 100%;
+    max-width: 780px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.intro_title {
+    color: #fff;
+    font-size: 48px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1;
+}
+
+.info_title {
+    color: #fff;
+    font-size: 22px;
+    font-weight: 700;
+    text-align: left;
+    line-height: 1; 
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+/* Header */
+.header {
+    width: 100%;
+    padding-top: 30px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.header_logo {
+    padding-left: 40px;
+    font-size: 30px;
+    font-weight: 700;
+    color: #fff;
+}
+
+/* Header-navigation */
+.nav {
+    padding-right: 20px;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.nav_link {
+    color: #fff;
+    text-decoration: none;
+    vertical-align: top;
+    margin: 0 15px;
+
+    transition: color .2s linear;
+}
+
+.nav_link:hover {
+    color: #fce38a;
+}
+
+.nav_link.active {
+    opacity: 1;
+    color: #fce38a;
+
+}
+
+.header_inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Button */
+.btn {
+    margin: 20px;
+    display: inline-block;
+    vertical-align: top;
+    padding: 8px 25px;
+    border: 3px solid #fff;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+
+    transition: background .2s linear;
+    transition: color .2s linear;
+}
+
+.btn:hover {
+    background-color: #fff;
+    color: #333;
+}
+
+/* Slider */
+.slider {
+    margin: 0 0 10px 0;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.slider_item.active {
+    opacity: 1;
+}
+
+.slider_item {
+    width: 23% ;
+    opacity: .7;
+    padding: 20px 0;
+    font-size: 18px;
+    border-bottom: 3px solid #fff;
+    color: #fff;
+}
+
+.slider_num {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.slider_img {
+    margin: 0 0 -80px 65px;
+    width: 1080px;
+    height: 480px
+}
