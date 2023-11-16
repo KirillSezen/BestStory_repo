@@ -36,19 +36,19 @@
                 
             <div class="slider">
                 <div class="slider_item active" >
-                    <span class="slider_num">1.</span>
+                    <span class="slider_num slider_item">1.</span>
                     Бойцовский клуб
                 </div>
                 <div class="slider_item">
-                    <span class="slider_num">2.</span>
+                    <span class="slider_num slider_item">2.</span>
                     Драйв
                 </div>
                 <div class="slider_item">
-                    <span class="slider_num">3.</span>
+                    <span class="slider_num slider_item">3.</span>
                     Большой Лебовский
                 </div>
                 <div class="slider_item">
-                    <span class="slider_num">4.</span>
+                    <span class="slider_num slider_item">4.</span>
                     Зелёная миля
                 </div>
                 
@@ -58,6 +58,23 @@
             </div>
         </div>
     </div>
+    <script>
+        let slider_items = document.querySelectorAll(".slider_item");
+        let intro_title = document.querySelector(".intro_title");
+        let movies = ["Бойцовский клуб", "Драйв", "Большой Лебовский", "Зелёная миля"];
+
+        function slideChange(event) {
+            let num = event.target.querySelector(".slider_num").textContent.slice(0, -1);
+            let current_slide = document.querySelector(".slider_item.active");
+            current_slide.classList.remove("active");
+            let selected_slide = document.querySelector(".slider_item:nth-child(" + num + ")");
+            selected_slide.classList.add("active");
+            intro_title.textContent = "Топ 4 фильма: " + movies[num - 1];
+        }
+        for (let slider_item of slider_items) {
+            slider_item.addEventListener("click", slideChange);
+        }
+    </script>
     
 </body>
 </html>
