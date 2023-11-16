@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="image" href="/assets/images/fight_club.jpeg">
+    <link rel="preload" as="image" href="/assets/images/drive.jpeg">
+    <link rel="preload" as="image" href="/assets/images/lebowski.jpeg">
+    <link rel="preload" as="image" href="/assets/images/green_mile.jpeg">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
     <title>BestStory</title>
 </head>
 <body>
-
     <header class="header">
         <div class="container">
             <div class="header_inner">
@@ -58,10 +61,13 @@
             </div>
         </div>
     </div>
+
     <script>
         let slider_items = document.querySelectorAll(".slider_item");
         let intro_title = document.querySelector(".intro_title");
         let movies = ["Бойцовский клуб", "Драйв", "Большой Лебовский", "Зелёная миля"];
+        let images = ["style.css/main_intro_fight_club", "style.css/main_intro_drive", "images/lebowski.jpeg", "images/green_mile.jpeg"];
+        let body = document.querySelector("body");
 
         function slideChange(event) {
             let num = event.target.querySelector(".slider_num").textContent.slice(0, -1);
@@ -70,6 +76,7 @@
             let selected_slide = document.querySelector(".slider_item:nth-child(" + num + ")");
             selected_slide.classList.add("active");
             intro_title.textContent = "Топ 4 фильма: " + movies[num - 1];
+            body.style.backgroundImage = "url('" + images[num - 1] + "')";
         }
         for (let slider_item of slider_items) {
             slider_item.addEventListener("click", slideChange);

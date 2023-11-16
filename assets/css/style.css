@@ -14,6 +14,24 @@ body {
     box-sizing: border-box;
 }
 
+@keyframes change-background {
+    0% {
+      background-image: url("/assets/images/fight_club.jpeg");
+    }
+    25% {
+      background-image: url("/assets/images/drive.jpeg");
+    }
+    50% {
+      background-image: url("/assets/images/lebowski.jpeg");
+    }
+    75% {
+      background-image: url("/assets/images/green_mile.jpeg");
+    }
+    100% {
+      background-image: url("/assets/images/fight_club.jpeg");
+    }
+  }
+  
 /* Container */
 .container {
     max-width: 1200px;
@@ -38,8 +56,10 @@ body {
     justify-content: center;
     height: 100vh;
     width: 100%;
-    background: url("/assets/images/1644894977_1-fikiwiki-com-p-kartinka-boitsovskii-klub-1.jpg") center no-repeat;
+    background: url("/assets/images/fight_club.jpeg") center no-repeat;
     background-size: cover;
+    animation: change-background 40s infinite;
+    animation-delay: 5s;
 }
 
 .intro {
@@ -181,4 +201,4 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0 0 -80px 65px;
     width: 1080px;
     height: 480px
-}
+}  
