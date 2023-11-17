@@ -59,7 +59,7 @@ body {
     background: url("/assets/images/fight_club.jpeg") center no-repeat;
     background-size: cover;
     animation: change-background 40s infinite;
-    animation-delay: 5s;
+    animation-delay: 2s;
 }
 
 .intro {
