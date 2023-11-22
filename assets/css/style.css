@@ -1,6 +1,6 @@
 /* Base */
 body {
-    background: #d0d0d0;
+    background: #fff;
     color: #333;
     font-family: 'Montserrat', sans-serif;
     font-size: 15px;
@@ -58,8 +58,7 @@ body {
     width: 100%;
     background: url("/assets/images/fight_club.jpeg") center no-repeat;
     background-size: cover;
-    animation: change-background 40s infinite;
-    animation-delay: 2s;
+    transition: background .7s ease-in;
 }
 
 .intro {
@@ -120,6 +119,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Footer */
 .footer{
+    background-color: #fff;
     display: flex;
     justify-content: right;
     max-width: 1200px;
@@ -156,6 +156,10 @@ h1, h2, h3, h4, h5, h6 {
     color: black;
     font-size: 15px;
     cursor: pointer;
+}
+
+.subscribe-form {
+    margin: 20px;
 }
 
 /* Header-navigation */
