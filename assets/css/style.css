@@ -18,7 +18,7 @@ body {
 
 *,
 *::before,
-*::after{
+*::after {
     box-sizing: border-box;
 }
 
@@ -50,7 +50,7 @@ body {
     width: 100%;
     background: url("/assets/images/fight_club.jpeg") center no-repeat;
     background-size: cover;
-    transition: background .7s ease-in;
+    transition: background .7s linear;
 }
 
 .intro {
@@ -110,7 +110,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Footer */
-.footer{
+.footer {
     background-color: #fff;
     display: flex;
     justify-content: right;
@@ -139,7 +139,7 @@ h1, h2, h3, h4, h5, h6 {
     transform: scale(0.95);
 }
 
-.email-label{
+.email-label {
     display: inline-block;
     padding: 7px 12px;
     border: none;
@@ -237,4 +237,73 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0 0 -80px 65px;
     width: 1080px;
     height: 480px
-}  
+} 
+
+/* Section */
+.section {
+    padding: 80px 0;
+    margin-top: auto;
+}
+
+.section_header{
+    width: 100%;
+    max-width: 950px;
+    margin: 0 auto 40px;
+
+}
+
+.section_title {
+    font-size: 30px;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+    
+}
+
+.section_title::after {
+    content: "";
+    display: block;
+    width: 250px;
+    height: 3px;
+    margin: 0 auto;
+    background-color: #4CAF50;
+}
+
+.section_text {
+    font-size: 18px;
+    color: #fff;
+}
+
+/* Statistics */
+.statistics {
+    background-color: #3E8E41;
+    margin-top: auto;
+}
+
+.stat {
+    display: flex;
+}
+
+.stat_item {
+    flex: 1 1 0;
+    padding: 50px 25px;
+    border-left: 1px solid #999;
+
+    text-align: center;
+    color: #fff;
+}
+
+.stat_item:last-child {
+    border-right: 1px solid #999;
+}
+
+.stat_numb {
+    margin-bottom: 10px;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.stat_text {
+    font-size: 14px;
+}
