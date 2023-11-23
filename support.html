@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
     <title>BestStory</title>
+
+    
 </head>
 <body>
 
@@ -30,8 +32,18 @@
         </div>
     </header>
 
+
+
     <div class="intro">
         <div class="container">
+            <div class="chat-bot">
+                <h3>Чат-бот поддержки</h3>
+                <div id="chat" class="chat-window"></div>
+                <div class="chat-input">
+                    <input id="input" type="text" placeholder="Введите ваш вопрос">
+                    <button onclick="sendMessage()">Отправить</button>
+                </div>
+            </div>
             <p class="intro_title">Поддержка:</p>
             <a href="https://t.me/serpn1e">
                 <p class="info_title">Сезень Кирилл Владимирович</p> 
@@ -41,7 +53,7 @@
             </a>
         </div>
     </div>
-
+    
     <footer class="footer">
         <div class="container">
           <div class="row">
@@ -66,5 +78,48 @@
         </div>
     </footer>
     
+    <script>
+        // Создаем экземпляр WebSocket-клиента
+        const ws = new WebSocket('ws://127.0.0.1:5500');
+    
+        // Обрабатываем открытие соединения
+        ws.onopen = function() {
+            console.log('Соединение установлено');
+        };
+    
+        // Обрабатываем закрытие соединения
+        ws.onclose = function() {
+            console.log('Соединение закрыто');
+        };
+    
+        // Обрабатываем сообщения от сервера
+        ws.onmessage = function(event) {
+            console.log('Получено сообщение: %s', event.data);
+            // Выводим сообщение на страницу
+            let chat = document.getElementById('chat');
+            let message = document.createElement('p');
+            message.textContent = 'Бот: ' + event.data;
+            chat.appendChild(message);
+        };
+    
+        // Функция для отправки сообщения на сервер
+        function sendMessage() {
+            // Получаем текст сообщения из поля ввода
+            let input = document.getElementById('input');
+            let text = input.value;
+            // Отправляем сообщение на сервер
+            ws.send(text);
+            console.log('Отправлено сообщение: %s', text);
+            // Выводим сообщение на страницу
+            let chat = document.getElementById('chat');
+            let message = document.createElement('p');
+            message.textContent = 'Вы: ' + text;
+            chat.appendChild(message);
+            // Очищаем поле ввода
+            input.value = '';
+        }
+    </script>
 </body>
+
+
 </html>
