@@ -6,6 +6,14 @@ body {
     font-size: 15px;
     line-height: 1.6;
     margin: 0;
+   
+}
+
+@media screen and (max-width: 980px) {
+    .index_intro {
+        width: 100px;
+        
+    }
 }
 
 *,
@@ -14,23 +22,7 @@ body {
     box-sizing: border-box;
 }
 
-@keyframes change-background {
-    0% {
-      background-image: url("/assets/images/fight_club.jpeg");
-    }
-    25% {
-      background-image: url("/assets/images/drive.jpeg");
-    }
-    50% {
-      background-image: url("/assets/images/lebowski.jpeg");
-    }
-    75% {
-      background-image: url("/assets/images/green_mile.jpeg");
-    }
-    100% {
-      background-image: url("/assets/images/fight_club.jpeg");
-    }
-  }
+
   
 /* Container */
 .container {
@@ -47,7 +39,7 @@ body {
     height: 100vh;
     width: 100%;
     background: url("/assets/images/обои-красивые-картинки-Майк-Митчелл-Mike-Mitchell-714070.jpeg") center no-repeat;
-    background-size: cover;
+    background-size:cover;
 }
 
 .main_intro {
@@ -159,7 +151,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .subscribe-form {
-    margin: 20px;
+    margin: 20px 5%;
 }
 
 /* Header-navigation */
