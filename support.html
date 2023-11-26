@@ -46,19 +46,19 @@
             </a>
             <div class="info">
                 <button class="question_button">Как найти обзор на конкретный фильм?</button>
-                <div class="answer">
+                <div id="answer1" class="answer">
                     <p>
                         Вы можете использовать поиск по сайту, введя название фильма в поле поиска в верхней части сайта. Вы также можете фильтровать обзоры по жанру, году, рейтингу и другим критериям, используя меню слева. Если вы не знаете название фильма, но помните какие-то детали, вы можете попробовать поискать его на [Bing], используя ключевые слова или фразы.
                     </p>
                 </div>
                 <button class="question_button">Как оставить свой обзор на фильм?</button>
-                <div class="answer">
+                <div id="answer2" class="answer">
                     <p>
                         Вы можете оставить свой обзор на фильм, если вы зарегистрированы на сайте и вошли в свой аккаунт. Для этого перейдите на страницу фильма, на который вы хотите оставить обзор, и нажмите на кнопку “Написать обзор” под постером фильма. Вы сможете выставить фильму оценку от 1 до 10, написать свое мнение и добавить теги. После того, как вы нажмете на кнопку “Опубликовать”, ваш обзор появится на сайте и будет доступен для просмотра другими пользователями.
                     </p>
                 </div>
                 <button class="question_button">Как прочитать обзоры других пользователей на фильм?</button>
-                <div class="answer">
+                <div id="answer3" class="answer">
                     <p>
                         Вы можете прочитать обзоры других пользователей на фильм, перейдя на страницу фильма и прокрутив вниз до раздела “Обзоры”. Вы сможете увидеть обзоры, отсортированные по дате, рейтингу или полезности. Вы также можете оставить свой комментарий на обзор, поставить ему лайк или дизлайк, или поделиться им в социальных сетях.
                     </p>
@@ -148,10 +148,17 @@
         coll[i].addEventListener('click', function() {
             this.classList.toggle('active');
             let content = this.nextElementSibling;
+            let answer1 = document.getElementById("answer1");
+            let answer2 = document.getElementById("answer2");
+            let answer3 = document.getElementById("answer3");
             if(content.style.maxHeight) {
                 content.style.maxHeight = null;
             } else {
+                answer1.style.maxHeight = null;
+                answer2.style.maxHeight = null;
+                answer3.style.maxHeight = null;
                 content.style.maxHeight = content.scrollHeight + 'px';
+
             }
         })
     }
