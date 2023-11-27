@@ -21,7 +21,7 @@
                    <a class="nav_link" href="index.html">BestStory</a> 
                 </div>
 
-                <nav class="nav">
+                <nav class="nav" id="nav">
                     <a class="nav_link" href="main.html">Главная</a>
                     <a class="nav_link" href="news.html">Новости</a>
                     <a class="nav_link" href="info.html">О нас</a>
@@ -29,7 +29,7 @@
 
                 </nav>
 
-                <button class="nav_toggle active" type="button">
+                <button class="nav_toggle " id="nav_toggle" type="button">
                     <span class="nav_toggle_item"></span>
                 </button>
             </div>
@@ -146,29 +146,10 @@
         }
     </script> 
 
-<script>
-    let coll = document.getElementsByClassName("question_button");
-    for (let i=0; i<coll.length; i++) {
-        coll[i].addEventListener('click', function() {
-            this.classList.toggle('active');
-            let content = this.nextElementSibling;
-            let answer1 = document.getElementById("answer1");
-            let answer2 = document.getElementById("answer2");
-            let answer3 = document.getElementById("answer3");
-            if(content.style.maxHeight) {
-                content.style.maxHeight = null;
-            } else {
-                answer1.style.maxHeight = null;
-                answer2.style.maxHeight = null;
-                answer3.style.maxHeight = null;
-                content.style.maxHeight = content.scrollHeight + 'px';
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-            }
-        })
-    }
-</script>
-
-
+<script src="/assets/scripts/questions.js"></script>
+<script src="/assets/scripts/menu.js"></script>
 
 </body>
 

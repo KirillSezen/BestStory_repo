@@ -172,27 +172,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Header-navigation */
-.nav {
+.navg {
+    display: flex;
     padding-right: 20px;
     font-size: 14px;
     text-transform: uppercase;
 }
 
-/* nav and nav_link for burger menu
-.nav {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: #333;
-}
 
-.nav_link {
-    display: block;
-    margin: 0;
-    padding: 8px 20px;
-}
-*/
+
+
+
+
+
 
 .nav_link {
     color: #fff;
@@ -450,6 +442,7 @@ background-color: #fff;
 
 /* News */
 .news {
+    flex-wrap: wrap;
     display: flex;
     justify-content: space-between;
 }
@@ -563,6 +556,8 @@ background-color: #fff;
     .nav_toggle {
         display: none;
     }
+    
+    
 
     /* Statistics */
     .stat {
@@ -598,16 +593,9 @@ background-color: #fff;
         font-size: 32px;
     }
 
-    /* Navigation */
-    .nav .nav_link {
-        display: none;
-    }
-    
     .nav_toggle {
         display: block;
     }
-
-    
 
     /* Slider */
     .slider_num.slider_item {
@@ -620,6 +608,22 @@ background-color: #fff;
     /* Info */
     .section_text {
         font-size: 14px;
+    }
+
+    /* nav and nav_link for burger menu*/
+    .nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    }
+    .nav.active {
+        display: block;
+    }
+    .nav_link {
+        display: block;
     }
 
     /* Footer */
@@ -642,10 +646,7 @@ background-color: #fff;
         font-size: 24px;
     }
 
-    /* Navigation */
-    .nav .nav_link {
-        display: none;
-    }
+    
     .header_logo{
         font-size: 24px;
         padding-left: 5px;
@@ -665,18 +666,26 @@ background-color: #fff;
 
     /* News */
     .news_date{
-        font-size: 10px;
+        font-size: 12px;
     }
     .news_date-day{
-        font-size: 10px;
+        font-size: 12px;
     }
     .news_item {
-        width: 90%;
+        width: 100%;
         padding: auto;
-        margin: 20px 0 20px 0; 
+        margin-bottom: 30px;
+        
     }
+    .news_photo {
+        width: 130px;
+        height: 70px;
+    }
+
+    
     .news {
-        flex-direction: column; 
+        flex-direction: column;
+        margin: 0 auto;  
     }
     .news_intro {
         height: 180vh;
