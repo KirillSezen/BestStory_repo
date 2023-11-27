@@ -69,13 +69,10 @@
                 </div>
             </div>
 
-            <div class="chat-bot">
-                <h3>Чат-бот поддержки</h3>
-                <div id="chat" class="chat-window"></div>
-                <div class="chat-input">
-                    <input id="input" type="text" placeholder="Введите ваш вопрос">
-                    <button onclick="sendMessage()">Отправить</button>
-                </div>
+            <div id="chat">
+                <div id="messages"></div>
+                <input id="input" type="text" placeholder="Введите ваш вопрос">
+                <button id="send" onclick="sendMessage()">Отправить</button>
             </div>
         </div>
     </div>
@@ -104,52 +101,37 @@
         </div>
     </footer>
     
-   <script>
-        // Создаем экземпляр WebSocket-клиента
-        const ws = new WebSocket('ws://127.0.0.1:5500');
+    <script>
+        // Создаем соединение с сервером через WebSocket
+        var socket = io("ws://localhost:3000");
     
-        // Обрабатываем открытие соединения
-        ws.onopen = function() {
-            console.log('Соединение установлено');
-        };
+        // Получаем элементы DOM
+        var messages = document.getElementById("messages");
+        var input = document.getElementById("input");
+        var send = document.getElementById("send");
     
-        // Обрабатываем закрытие соединения
-        ws.onclose = function() {
-            console.log('Соединение закрыто');
-        };
-    
-        // Обрабатываем сообщения от сервера
-        ws.onmessage = function(event) {
-            console.log('Получено сообщение: %s', event.data);
-            // Выводим сообщение на страницу
-            let chat = document.getElementById('chat');
-            let message = document.createElement('p');
-            message.textContent = 'Бот: ' + event.data;
-            chat.appendChild(message);
-        };
-    
-        // Функция для отправки сообщения на сервер
+        // Отправляем сообщение на сервер при нажатии на кнопку
         function sendMessage() {
-            // Получаем текст сообщения из поля ввода
-            let input = document.getElementById('input');
-            let text = input.value;
-            // Отправляем сообщение на сервер
-            ws.send(text);
-            console.log('Отправлено сообщение: %s', text);
-            // Выводим сообщение на страницу
-            let chat = document.getElementById('chat');
-            let message = document.createElement('p');
-            message.textContent = 'Вы: ' + text;
-            chat.appendChild(message);
-            // Очищаем поле ввода
-            input.value = '';
+          var message = input.value;
+          if (message) {
+            socket.emit("message", message);
+            input.value = "";
+          }
         }
-    </script> 
+    
+        // Добавляем сообщение в чат при получении события "message" от сервера
+        socket.on("message", function(message) {
+          var div = document.createElement("div");
+          div.textContent = message;
+          messages.appendChild(div);
+        });
+      </script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 <script src="/assets/scripts/questions.js"></script>
 <script src="/assets/scripts/menu.js"></script>
+<script src="/assets/scripts/bot.js"></script>
 
 </body>
 
