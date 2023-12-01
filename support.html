@@ -70,11 +70,11 @@
             </div>
 
             <div id="chat">
-                <div id="messages"></div>
-                <input id="input" type="text" placeholder="Введите ваш вопрос">
-                <button id="send" onclick="sendMessage()">Отправить</button>
+                
             </div>
         </div>
+
+        
     </div>
     
     <footer class="footer">
@@ -101,36 +101,15 @@
         </div>
     </footer>
     
-    <script>
-        // Создаем соединение с сервером через WebSocket
-        var socket = io("ws://localhost:3000");
     
-        // Получаем элементы DOM
-        var messages = document.getElementById("messages");
-        var input = document.getElementById("input");
-        var send = document.getElementById("send");
-    
-        // Отправляем сообщение на сервер при нажатии на кнопку
-        function sendMessage() {
-          var message = input.value;
-          if (message) {
-            socket.emit("message", message);
-            input.value = "";
-          }
-        }
-    
-        // Добавляем сообщение в чат при получении события "message" от сервера
-        socket.on("message", function(message) {
-          var div = document.createElement("div");
-          div.textContent = message;
-          messages.appendChild(div);
-        });
-      </script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 <script src="/assets/scripts/menu.js"></script>
 <script src="/assets/scripts/questions.js"></script>
+<script src="/assets/scripts/chat.js"></script>
+
+<script src="https://kit.fontawesome.com/52a4e3add0.js" crossorigin="anonymous"></script>
 
 
 </body>
