@@ -1,0 +1,40 @@
+<html>
+<head>
+    <link rel="stylesheet" href="/assets/css/formStyle.css">
+    <script src="/assets/scripts/validation.js"></script>
+</head>
+<body>
+    <a class="backbtn" href="main.html">Вернутся на главную</a>
+    <h1 class="title">Зарегистрируйтесь на нашем сайте, если вы этого ещё не сделали</h1>
+    <form action="/assets/php/Registration.php" method="post" id="myForm">
+        <div class="form-group">
+            <label for="login">Логин:</label>
+            <p id="login_tip" class="tiny_alert_text">не менее 5 символов</p>
+            <input type="text" id="login" name="login" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <p id="email_tip" class="tiny_alert_text">длина не менее 10 символов и не более 20</p>
+            <input type="text" id="email" name="email" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="password">Пароль:</label>
+            <p id="password_tip" class="tiny_alert_text">длина пароля больше 10</p>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div class="form-group">
+            <label for="repassword">Павторите пароль:</label>
+            <p id="repassword_tip" class="tiny_alert_text">пароли не совпадают</p>
+            <input type="password" id="repassword" name="repassword" required>
+        </div>
+        <div class="form-group">
+            <button type="button" id="submit" onclick="submitFormForReqistration()">Зарегистрироваться</button>
+        </div>
+    </form>
+    <div class="signin">
+        <p>Уже есть аккаунт? <a class="formText" href="/authorization.html">Войти</a></p>
+      </div>
+    
+</body>
+</html>
