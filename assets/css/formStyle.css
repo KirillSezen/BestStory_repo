@@ -113,3 +113,28 @@ button:active {
     background-color: #696868;
     color: #333;
 }
+
+.form_input {
+    border: none;
+    border-bottom: 2px solid red;
+}
+
+.error-msg {
+    color: black; 
+    background-color: #696868;
+    font-size: 18px;
+    border-radius: 5px; 
+    padding: 10px; 
+    margin-top: 10px;
+    margin-left: 510px;
+    width: 480px;
+    position: block; 
+    top: 0; 
+    left: 0; 
+    z-index: 1; 
+    font-weight: 700;
+  }
+
+  .none {
+    display: none;
+  }

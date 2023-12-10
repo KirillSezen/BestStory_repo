@@ -1,96 +1,86 @@
+$(document).ready(function(){
+    $('.autsubmit-btn').click(function(e){
+        e.preventDefault();
 
-function submitFormForReqistration() {
-    var email = document.getElementById("email").value;
-    var login = document.getElementById("login").value;
-    var password = document.getElementById("password").value;
-    var repassword = document.getElementById("repassword").value;
-
-    var valid = true;
+        $('input').removeClass('form_input');
+        let email = $('input[name="email"]').val();
+        let password = $('input[name="password"]').val();
     
-    if (email.length < 10 || email.length > 20) {
-        // email длина не менее 10 символов и не более 20
-        document.getElementById("email").classList.add("invalid");
-        document.getElementById("email").style.color = "brown";
-        document.getElementById("email_tip").style.display = "block";
-        valid = false;
-    } else {
-        document.getElementById("email").classList.remove("invalid");
-        document.getElementById("email").style.color = "black";
-        document.getElementById("email_tip").style.display = "none";
-    }
-    if (login.length < 5) {
-        // логин не менее 5 символов
-        document.getElementById("login").classList.add("invalid");
-        document.getElementById("login").style.color = "brown";
-        document.getElementById("login_tip").style.display = "block";
-        valid = false;
-    } else {
-        document.getElementById("login").classList.remove("invalid");
-        document.getElementById("login").style.color = "black";
-        document.getElementById("login_tip").style.display = "none";
-    }
-    if (password.length < 10) {
-        // длина пароля больше 10
-        document.getElementById("password").classList.add("invalid");
-        document.getElementById("password").style.color = "brown";
-        document.getElementById("password_tip").style.display = "block";
-        valid = false;
-    } else {
-        document.getElementById("password").classList.remove("invalid");
-        document.getElementById("password").style.color = "black";
-        document.getElementById("password_tip").style.display = "none";
-    }
-    if (repassword != password) {
-        // пароли не совпадают
-        document.getElementById("repassword").classList.add("invalid");
-        document.getElementById("repassword").style.color = "brown";
-        document.getElementById("repassword_tip").style.display = "block";
-        valid = false;
-    } else {
-        document.getElementById("repassword").classList.remove("invalid");
-        document.getElementById("repassword").style.color = "black";
-        document.getElementById("repassword_tip").style.display = "none";
-    }
-    if (valid) {
-        alert("Добро пожаловать, " + login + "! Вы успешно зарегистрированы на нашем сайте.");
-        document.location.href = "/main.html";
-    } else {
-        alert("Пожалуйста, введите корректные данные.");
-    }
-}
+        $.ajax({
+            url: 'authorization.php',
+            type: 'post',
+            datatype: 'json', 
+            data: {
+                email: email,
+                password: password
+            },
+            success (data){
+                if (data.status){
+                    document.location.href = '/profile.php';
+                    
+                }
+                else{
 
+                    if (data.type === 1) {
+                        data.fields.forEach(function(field){
+                            $(`input[name="${field}"]`).addClass('form_input');
+                        });
+                    }
 
-function submitFormForAuthorization() {
-    var login = document.getElementById("login").value;
-    var password = document.getElementById("password").value;
+                    $('.error-msg').removeClass('none').text(data.message);
+                    $('.password').val('');
+                }
+            }
+        });
+    });
+    
 
-    var valid = true;
-    if (login.length < 5) {
-        // логин не менее 5 символов
-        document.getElementById("login").classList.add("invalid");
-        document.getElementById("login").style.color = "brown";
-        document.getElementById("login_tip").style.display = "block";
-        valid = false;
-    } else {
-        document.getElementById("login").classList.remove("invalid");
-        document.getElementById("login").style.color = "black";
-        document.getElementById("login_tip").style.display = "none";
-    }
-    if (password.length < 10) {
-        // длина пароля больше 10
-        document.getElementById("password").classList.add("invalid");
-        document.getElementById("password").style.color = "brown";
-        document.getElementById("password_tip").style.display = "block";
-        valid = false;
-    } else {
-        document.getElementById("password").classList.remove("invalid");
-        document.getElementById("password").style.color = "black";
-        document.getElementById("password_tip").style.display = "none";
-    }
-    if (valid) {
-        alert("Добро пожаловать, " + login + "! Вы успешно вошли на сайт.");
-        document.location.href = "/main.html";
-    } else {
-        alert("Пожалуйста, введите корректные данные.");
-    }
-}
+    $('.regsubmit-btn').click(function(e){
+        e.preventDefault();
+        $(".tiny_alert_text").css("display", "none");
+        $('input').removeClass('form_input');
+        let email = $('input[name="email"]').val();
+        let login = $('input[name="login"]').val();
+        let repassword = $('input[name="repassword"]').val();
+        let password = $('input[name="password"]').val();
+    
+        $.ajax({
+            url: 'Registration.php',
+            type: 'post',
+            datatype: 'json', 
+            data: {
+                login: login,
+                email: email,
+                password: password,
+                repassword: repassword
+            },
+            success (data){
+
+                if (data.status){
+                    document.location.href = '/authorizationForm.html';
+                }
+                else{
+
+                    if (data.type === 1) {
+                        data.fields.forEach(function(field){
+                            $(`input[name="${field}"]`).addClass('form_input');
+                            if(field == "email") $("#email_tip").css("display", "block");
+                            if(field == "login") $("#login_tip").css("display", "block");
+                            if(field == "password") $("#password_tip").css("display", "block");
+                            if(field == "repassword") $("#repassword_tip").css("display", "block");
+                            $('.error-msg').removeClass('none').text(data.message);
+                        });
+                    }
+                    if(data.type === 2){
+                        $('.error-msg').removeClass('none').text(data.message);
+                    }
+                    if(data.type === 3){
+                        $('.error-msg').removeClass('none').text(data.message);
+                    }
+                    $('.password').val('');
+                }
+            }
+        });
+    });
+    
+});

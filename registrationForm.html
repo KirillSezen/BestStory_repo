@@ -1,0 +1,45 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/assets/css/formStyle.css">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="/assets/scripts/validation.js"></script>
+</head>
+<body>
+    <a class="backbtn" href="main.html">Вернутся на главную</a>
+    <h1 class="title">Зарегистрируйтесь на нашем сайте, если вы этого ещё не сделали</h1>
+    <form action="Registration.php" method="post" id="myForm">
+        <div class="form-group">
+            <label for="login">Логин:</label>
+            <p id="login_tip" class="tiny_alert_text">Не менее 5 символов, а также только Латиница и цифры</p>
+            <input type="text" id="login" name="login" placeholder="Введите свой логин" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <p id="email_tip" class="tiny_alert_text">Неверный формат Email</p>
+            <input type="email" id="email" name="email" placeholder="Введите свой Email" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="password">Пароль:</label>
+            <p id="password_tip" class="tiny_alert_text">Длина больше 8, хотя бы одна заглавная и строчная буквы и одна цифра</p>
+            <input type="password" id="password" name="password" placeholder="Введите свой пароль" required>
+        </div>
+        <div class="form-group">
+            <label for="repassword">Повторите пароль:</label>
+            <p id="repassword_tip" class="tiny_alert_text">Пароли не совпадают</p>
+            <input type="password" id="repassword" name="repassword" placeholder="Повторите свой пароль" required>
+        </div>
+        <div class="form-group">
+            <button type="submit" id="submit" class="regsubmit-btn" name="submit">Зарегистрироваться</button>
+        </div>
+    </form>
+    <div class="error-msg none">
+        <p>ff</p>
+    </div>
+    <div class="signin">
+        <p>Уже есть аккаунт? <a class="formText" href="authorizationForm.html">Войти</a></p>
+      </div>
+    
+</body>
+</html>
